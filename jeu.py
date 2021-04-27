@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from random import *
 
 class Jeu:
@@ -36,6 +37,18 @@ class Jeu:
             return self.choix[1]
         else:
             return self.choix[2]
+
+    def finPartie (self):
+        if self.scoreJoueur > self.scoreOrdi:
+            print "Le joueur a gagné avec " + str(self.scoreJoueur) + " et l'ordi a " +str(self.scoreOrdi)
+        elif self.scoreJoueur < self.scoreOrdi:
+            print "L'ordi a gagné avec " + str(self.scoreOrdi) + " et le joueur a " +str(self.scoreJoueur)
+        else:
+            print "égalité, les deux ont " + str(self.scoreJoueur)
+        
     
-#pfc = Jeu()
-#pfc.round(pfc.choix[1], pfc.choixOrdi1())
+pfc = Jeu()
+pfc.round(pfc.choix[1], pfc.choixOrdi1())
+pfc.round(pfc.choix[2], pfc.choixOrdi1())
+pfc.round(pfc.choix[0], pfc.choixOrdi1())
+pfc.finPartie()
