@@ -47,8 +47,4 @@ class Jeu:
             print "égalité, les deux ont " + str(self.scoreJoueur)
         
     
-pfc = Jeu()
-pfc.round(pfc.choix[1], pfc.choixOrdi1())
-pfc.round(pfc.choix[2], pfc.choixOrdi1())
-pfc.round(pfc.choix[0], pfc.choixOrdi1())
-pfc.finPartie()
+
