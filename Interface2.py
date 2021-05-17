@@ -23,10 +23,11 @@ def nouvellePartie():
     buttonCiseau = Button(root,text="Ciseau", command=choixCiseau) 
     buttonCiseau.grid(row = 2, column = 2, padx = 5, pady =5)
 
-    buttonFin = Button(root,text="Fin de partie", command=finDePartie) 
-    buttonFin.grid(row = 5, column = 1, padx = 5, pady =5)
+#    buttonFin = Button(root,text="Fin de partie", command=finDePartie) 
+#    buttonFin.grid(row = 5, column = 1, padx = 5, pady =5)
 
     prenom.grid_forget()
+    nom.grid_forget()
 
 #Le p (ChoixP) correspond à pierre (caillou)
 
@@ -35,18 +36,30 @@ def choixCaillou():
     res = pfc.round(pfc.choix[0], choixP)
     updatescore("                                                  ","","")
     updatescore(res,pfc.choix[0],choixP)
+    if pfc.scoreJoueur  == 3:
+        finDePartie()
+    elif pfc.scoreOrdi == 3:
+        finDePartie()
 
 def choixFeuille():
     choixF = pfc.choixOrdi1() 
     res = pfc.round(pfc.choix[1], choixF)
     updatescore("                                                  ","","")
     updatescore(res,pfc.choix[1],choixF)
+    if pfc.scoreJoueur  == 3:
+        finDePartie()
+    elif pfc.scoreOrdi == 3:
+        finDePartie()
     
 def choixCiseau():
     choixC = pfc.choixOrdi1() 
     res = pfc.round(pfc.choix[2], choixC)
     updatescore("                                                  ","","")
     updatescore(res, pfc.choix[2], choixC)
+    if pfc.scoreJoueur ==3:
+        finDePartie()
+    elif pfc.scoreOrdi == 3:
+        finDePartie()
 
 def updatescore(res, choixJoueur, choixOrdi):
     resultatJeu = Label(root, text = choixJoueur + " - " + choixOrdi)
@@ -57,9 +70,6 @@ def updatescore(res, choixJoueur, choixOrdi):
     scoreO.grid(row = 4, column = 2, padx = 5, pady =5)
     scoreT = Label(root, text = res)
     scoreT.grid(row = 4, column = 1, padx = 5, pady =5)
-    if pfc.scoreJoueur or pfc.scoreOrdi == 3:
-        finDePartie()
-
 
 def finDePartie():
     pfc.finPartie()
@@ -75,10 +85,13 @@ def finDePartie():
     
     svalue.set("")
     prenom.grid(row = 1, column = 1, padx=10, pady =10)
+    nom.grid(row = 1, column = 0, padx = 5, pady =5)
 
 buttonNouvellePartie = Button(root,text="Nouvelle partie", command=nouvellePartie) 
 buttonNouvellePartie.grid(row = 0, column = 1, padx=10, pady =10)
 
+nom = Label(root, text = "Nom du joueur : ")
+nom.grid(row = 1, column = 0, padx = 5, pady =5)
 prenom = Entry(root,textvariable=svalue)
 prenom.grid(row = 1, column = 1, padx=10, pady =10)
 
