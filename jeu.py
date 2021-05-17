@@ -5,7 +5,7 @@ class Jeu:
 
     scoreJoueur = 0
     scoreOrdi = 0
-    choix = ["pierre", "feuille", "ciseau"] 
+    choix = ["Caillou", "Feuille", "Ciseau"] 
 
     def round (self,choixjoueur, choixordi):
         if choixjoueur == self.choix[0] and choixordi == self.choix[1]:
