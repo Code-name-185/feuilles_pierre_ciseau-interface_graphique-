@@ -14,13 +14,10 @@ def nouvellePartie():
     pfc.scoreOrdi = 0
     updatescore("                                                  ","","")
     
-    buttonCaillou = Button(root,text="Caillou", command=choixCaillou) 
     buttonCaillou.grid(row = 2, column = 0, padx = 5, pady =5)
 
-    buttonFeuille = Button(root,text="Feuille", command=choixFeuille) 
     buttonFeuille.grid(row = 2, column = 1, padx = 5, pady =5)
 
-    buttonCiseau = Button(root,text="Ciseau", command=choixCiseau) 
     buttonCiseau.grid(row = 2, column = 2, padx = 5, pady =5)
 
 #    buttonFin = Button(root,text="Fin de partie", command=finDePartie) 
@@ -86,9 +83,16 @@ def finDePartie():
     svalue.set("")
     prenom.grid(row = 1, column = 1, padx=10, pady =10)
     nom.grid(row = 1, column = 0, padx = 5, pady =5)
+    buttonCaillou.grid_forget()
+    buttonFeuille.grid_forget()
+    buttonCiseau.grid_forget()
 
 buttonNouvellePartie = Button(root,text="Nouvelle partie", command=nouvellePartie) 
 buttonNouvellePartie.grid(row = 0, column = 1, padx=10, pady =10)
+
+buttonCaillou = Button(root,text="Caillou", command=choixCaillou)
+buttonFeuille = Button(root,text="Feuille", command=choixFeuille) 
+buttonCiseau = Button(root,text="Ciseau", command=choixCiseau) 
 
 nom = Label(root, text = "Nom du joueur : ")
 nom.grid(row = 1, column = 0, padx = 5, pady =5)
