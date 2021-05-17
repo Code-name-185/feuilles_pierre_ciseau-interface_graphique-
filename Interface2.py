@@ -26,6 +26,8 @@ def nouvellePartie():
     buttonFin = Button(root,text="Fin de partie", command=finDePartie) 
     buttonFin.grid(row = 4, column = 1, padx = 5, pady =5)
 
+    prenom.grid_forget()
+
 def choixCaillou():
     res = pfc.round(pfc.choix[0], pfc.choixOrdi1())
     updatescore("                                                  ")
@@ -42,7 +44,7 @@ def choixCiseau():
     updatescore(res)
 
 def updatescore(res):
-    scoreJ = Label(root, text= "Joueur " + str(pfc.scoreJoueur))
+    scoreJ = Label(root, text= svalue.get() + " " + str(pfc.scoreJoueur))
     scoreJ.grid(row = 3, column = 0, padx = 5, pady =5)
     scoreO = Label(root, text= "Ordinateur " + str(pfc.scoreOrdi))
     scoreO.grid(row = 3, column = 2, padx = 5, pady =5)
@@ -60,6 +62,8 @@ def finDePartie():
     else:
             egalite = Label(root, text= "égalité, les deux ont " + str(pfc.scoreJoueur))
             egalite.grid(row = 5, column = 1, padx = 5, pady =5)
+    
+    prenom.grid(row = 1, column = 1, padx=10, pady =10)
 
 buttonNouvellePartie = Button(root,text="Nouvelle partie", command=nouvellePartie) 
 buttonNouvellePartie.grid(row = 0, column = 1, padx=10, pady =10)
