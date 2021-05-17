@@ -10,31 +10,31 @@ class Jeu:
     def round (self,choixjoueur, choixordi):
         if choixjoueur == self.choix[0] and choixordi == self.choix[1]:
             self.scoreOrdi += 1
-            print("L'ordinateur a gagné")
-            return("L'ordinateur a gagné")
+            print("L'ordinateur gagne le point")
+            return("L'ordinateur gagne le point")
         elif choixjoueur == self.choix[0] and choixordi == self.choix[2]:
             self.scoreJoueur += 1
-            print("Le joueur a gagné")
-            return("Le joueur a gagné")
+            print("Vous gagnez le point")
+            return("Vous gagnez le point")
         elif choixjoueur == self.choix[1] and choixordi == self.choix[0]:
             self.scoreJoueur += 1
-            print("Le joueur a gagné")
-            return("Le joueur a gagné")
+            print("Vous gagnez le point")
+            return("Vous gagnez le point")
         elif choixjoueur == self.choix[1] and choixordi == self.choix[2]:
             self.scoreOrdi += 1
-            print("L'ordinateur a gagné")
-            return("L'ordinateur a gagné")
+            print("L'ordinateur gagne le point")
+            return("L'ordinateur gagne le point")
         elif choixjoueur == self.choix[2] and choixordi == self.choix[0]:
             self.scoreOrdi += 1
-            print("L'ordinateur a gagné")
-            return("L'ordinateur a gagné")
+            print("L'ordinateur gagne le point")
+            return("L'ordinateur gagne le point")
         elif choixjoueur == self.choix[2] and choixordi == self.choix[1]:
             self.scoreJoueur += 1
-            print("Le joueur a gagné")
-            return("Le joueur a gagné")
+            print("Vous gagnez le point")
+            return("Vous gagnez le point")
         else:
-            print("égalité")
-            return("égalité")
+            print("Personne ne gagne le point")
+            return("Personne ne gagne le point")
 
     def choixOrdi1(self):
         choi = randrange(3)
