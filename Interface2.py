@@ -7,22 +7,24 @@ root.resizable(0,0)
 svalue = IntVar()
 pfc = jeu.Jeu()
 
+svalue = StringVar()
+
 def nouvellePartie():
     pfc.scoreJoueur = 0
     pfc.scoreOrdi = 0
     updatescore("                                                  ")
     
     buttonCaillou = Button(root,text="Pierre", command=choixCaillou) 
-    buttonCaillou.grid(row = 1, column = 0, padx = 5, pady =5)
+    buttonCaillou.grid(row = 2, column = 0, padx = 5, pady =5)
 
     buttonFeuille = Button(root,text="Feuille", command=choixFeuille) 
-    buttonFeuille.grid(row = 1, column = 1, padx = 5, pady =5)
+    buttonFeuille.grid(row = 2, column = 1, padx = 5, pady =5)
 
     buttonCiseau = Button(root,text="Ciseau", command=choixCiseau) 
-    buttonCiseau.grid(row = 1, column = 2, padx = 5, pady =5)
+    buttonCiseau.grid(row = 2, column = 2, padx = 5, pady =5)
 
     buttonFin = Button(root,text="Fin de partie", command=finDePartie) 
-    buttonFin.grid(row = 3, column = 1, padx = 5, pady =5)
+    buttonFin.grid(row = 4, column = 1, padx = 5, pady =5)
 
 def choixCaillou():
     res = pfc.round(pfc.choix[0], pfc.choixOrdi1())
@@ -31,35 +33,38 @@ def choixCaillou():
 
 def choixFeuille():
     res = pfc.round(pfc.choix[1], pfc.choixOrdi1())
-    updatescore("                                                            ")
+    updatescore("                                                  ")
     updatescore(res)
     
 def choixCiseau(): 
     res = pfc.round(pfc.choix[2], pfc.choixOrdi1())
-    updatescore("                                                            ")
+    updatescore("                                                  ")
     updatescore(res)
 
 def updatescore(res):
     scoreJ = Label(root, text= "Joueur " + str(pfc.scoreJoueur))
-    scoreJ.grid(row = 2, column = 0, padx = 5, pady =5)
+    scoreJ.grid(row = 3, column = 0, padx = 5, pady =5)
     scoreO = Label(root, text= "Ordinateur " + str(pfc.scoreOrdi))
-    scoreO.grid(row = 2, column = 2, padx = 5, pady =5)
+    scoreO.grid(row = 3, column = 2, padx = 5, pady =5)
     scoreT = Label(root, text = res)
-    scoreT.grid(row = 2, column = 1, padx = 5, pady =5)
+    scoreT.grid(row = 3, column = 1, padx = 5, pady =5)
 
 def finDePartie():
     pfc.finPartie()
     if pfc.scoreJoueur > pfc.scoreOrdi:
             victoireJoueur = Label(root, text= "Le joueur a gagné avec " + str(pfc.scoreJoueur) + " et l'ordi " +str(pfc.scoreOrdi))
-            victoireJoueur.grid(row = 4, column = 1, padx = 5, pady =5)
+            victoireJoueur.grid(row = 5, column = 1, padx = 5, pady =5)
     elif pfc.scoreJoueur < pfc.scoreOrdi:
             victoireOrdi = Label (root, text=  "L'ordi a gagné avec " + str(pfc.scoreOrdi) + " et le joueur " +str(pfc.scoreJoueur))
-            victoireOrdi.grid(row = 4, column = 1, padx = 5, pady =5)
+            victoireOrdi.grid(row = 5, column = 1, padx = 5, pady =5)
     else:
             egalite = Label(root, text= "égalité, les deux ont " + str(pfc.scoreJoueur))
-            egalite.grid(row = 4, column = 1, padx = 5, pady =5)
+            egalite.grid(row = 5, column = 1, padx = 5, pady =5)
 
-buttonNouvellePartie = Button(root,text="NouvellePartie", command=nouvellePartie) 
+buttonNouvellePartie = Button(root,text="Nouvelle partie", command=nouvellePartie) 
 buttonNouvellePartie.grid(row = 0, column = 1, padx=10, pady =10)
+
+prenom = Entry(root,textvariable=svalue)
+prenom.grid(row = 1, column = 1, padx=10, pady =10)
 
 root.mainloop()
