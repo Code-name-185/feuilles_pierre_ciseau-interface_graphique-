@@ -91,17 +91,19 @@ def finDePartie():
     buttonFeuille.grid_forget()
     buttonCiseau.grid_forget()
     buttonNouvellePartie.destroy()
+
     buttonRecommencer = Button(root,text="Recommencer", command=nouvellePartie)
     buttonRecommencer.grid(row = 0, column = 1, padx=10, pady =10)
 
-    def updateLab (var):
-        victoireJoueur
-
-
-
-
+def quitter():
+    
+    root.destroy()
+        
 buttonNouvellePartie = Button(root,text="Nouvelle partie", command=nouvellePartie) 
 buttonNouvellePartie.grid(row = 0, column = 1, padx=10, pady =10)
+
+buttonQuitter = Button(root,text="Quitter", command=quitter, bg="red") 
+buttonQuitter.grid(row = 0, column = 2, padx=10, pady =10)
 
 buttonCaillou = Button(root,text="Caillou", command=choixCaillou)
 buttonFeuille = Button(root,text="Feuille", command=choixFeuille) 
